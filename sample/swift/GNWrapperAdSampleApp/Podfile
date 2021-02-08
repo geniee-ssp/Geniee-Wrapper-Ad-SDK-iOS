@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'GNWrapperAdSampleApp' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for GNWrapperAdSampleApp
+  # Google ad SDK
+  pod 'Google-Mobile-Ads-SDK'
+  # Firebase
+  pod 'Firebase/Core'
+  pod 'Firebase/RemoteConfig'
+  # Prebid
+  pod 'PrebidMobile'
+  # PubMatic
+  pod 'OpenWrapSDK'
+  pod 'OpenWrapEventHandler/DFP'
+
+end
