@@ -1,5 +1,5 @@
 #
-#  Be sure to run `pod spec lint Geniee-Google-Mediation-Adapter.podspec' to ensure this is a
+#  Be sure to run `pod spec lint Geniee-Wrapper-Ad-Banner-Adapter-Pubmatic-iOS' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
 #  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 
-  s.name         = "Geniee-Wrapper-Ad-HB-PrebidAdapter-iOS"
+  s.name         = "Geniee-Wrapper-Ad-Banner-Adapter-Pubmatic-iOS"
   s.version      = "1.0.0"
   s.summary      = "An SDK for ad menetization with the Geniee Network"
   s.homepage     = "https://geniee.co.jp"
@@ -54,7 +54,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
   
-  s.vendored_frameworks = "BannerAdapter/GNHBPrebidBannerAdapter/Framework/GNHBPrebidBannerAdapter.framework"
+  s.vendored_frameworks = "BannerAdapter/GNHBPubmaticBannerAdapter/Framework/GNHBPubmaticBannerAdapter.framework"
   
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -92,6 +92,6 @@ Pod::Spec.new do |s|
   s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.requires_arc = true
   s.dependency "Geniee-Wrapper-Ad-SDK-iOS"
-  s.dependency "PrebidMobile"
+  s.dependency "OpenWrapSDK"
 
 end

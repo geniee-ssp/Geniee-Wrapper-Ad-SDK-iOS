@@ -102,7 +102,7 @@ UPR最適化+HBによる収益向上を行うため、GNWrapperAdSDKを使用し
 		# Prebid
 		pod 'PrebidMobile'
 		# GNHBPrebidBannerAdapter
-		pod 'Geniee-Wrapper-Ad-HB-PrebidAdapter-iOS'
+		pod 'Geniee-Wrapper-Ad-Banner-Adapter-Prebid-iOS'
 		```
 
 		GNHBPrebidBannerAdapterをローカルで取り込む場合は、"GNHBPrebidBannerAdapter.framework"をプロジェクトへ取り込み、プロジェクト設定のBuild SettingsのFramework Search Pathsの設定に"GNHBPrebidBannerAdapter.framework"のパスを指定してください。
@@ -114,7 +114,7 @@ UPR最適化+HBによる収益向上を行うため、GNWrapperAdSDKを使用し
 		pod 'OpenWrapSDK'
 		pod 'OpenWrapEventHandler/DFP'
 		# GNHBPubmaticBannerAdapter
-		pod 'Geniee-Wrapper-Ad-HB-PubmaticAdapter-iOS'
+		pod 'Geniee-Wrapper-Ad-Banner-Adapter-Pubmatic-iOS'
 		```
 
 		GNHBPubmaticBannerAdapterをローカルで取り込む場合は、"GNHBPubmaticBannerAdapter.framework"をプロジェクトへ取り込み、プロジェクト設定のBuild SettingsのFramework Search Pathsの設定に"GNHBPubmaticBannerAdapter.framework"のパスを指定してください。

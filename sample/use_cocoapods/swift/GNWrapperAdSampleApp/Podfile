@@ -19,8 +19,8 @@ target 'GNWrapperAdSampleApp' do
   # GNWrapperAdSdk
   pod 'Geniee-Wrapper-Ad-SDK-iOS'
   # GNHBPrebidBannerAdapter
-  pod 'Geniee-Wrapper-Ad-HB-PrebidAdapter-iOS'
+  pod 'Geniee-Wrapper-Ad-Banner-Adapter-Prebid-iOS'
   # GNHBPubmaticBannerAdapter
-  pod 'Geniee-Wrapper-Ad-HB-PubmaticAdapter-iOS'
+  pod 'Geniee-Wrapper-Ad-Banner-Adapter-Pubmatic-iOS'
 
 end
