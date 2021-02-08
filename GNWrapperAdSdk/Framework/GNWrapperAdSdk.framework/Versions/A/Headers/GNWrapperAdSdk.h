@@ -3,10 +3,6 @@
 //  GNWrapperAdSdk
 //
 
-//#import <GNWrapperAdSdk/GNCustomTargetingParams.h>
-//#import <GNWrapperAdSdk/GNLog.h>
-//#import <GNWrapperAdSdk/GNWrapperAdBanner.h>
-//#import <GNWrapperAdSdk/GNWrapperAdBannerDelegate.h>
 #import "GNCustomTargetingParams.h"
 #import "GNLog.h"
 #import "GNWrapperAdBanner.h"
