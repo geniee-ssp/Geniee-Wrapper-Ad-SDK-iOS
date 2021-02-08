@@ -1,0 +1,446 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EFBA6C7725C95B0D004A25BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBA6C7625C95B0D004A25BD /* AppDelegate.swift */; };
+		EFBA6C7925C95B0E004A25BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBA6C7825C95B0E004A25BD /* SceneDelegate.swift */; };
+		EFBA6C7B25C95B0E004A25BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBA6C7A25C95B0E004A25BD /* ViewController.swift */; };
+		EFBA6C7E25C95B0E004A25BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFBA6C7C25C95B0E004A25BD /* Main.storyboard */; };
+		EFBA6C8025C95B0E004A25BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFBA6C7F25C95B0E004A25BD /* Assets.xcassets */; };
+		EFBA6C8325C95B0E004A25BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFBA6C8125C95B0E004A25BD /* LaunchScreen.storyboard */; };
+		EFBA6CA125C95CA5004A25BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFBA6C9F25C95CA5004A25BD /* GoogleService-Info.plist */; };
+		EFBA6CA225C95CA5004A25BD /* DefaultRemoteConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFBA6CA025C95CA5004A25BD /* DefaultRemoteConfig.plist */; };
+		EFBA6CA725C95CB8004A25BD /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBA6CA525C95CB8004A25BD /* Util.m */; };
+		EFBA6CAB25C95F9D004A25BD /* GNWrapperAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBA6CAA25C95F9D004A25BD /* GNWrapperAdSDK.framework */; };
+		EFBA6CAD25C95FAE004A25BD /* GNHBPubmaticBannerAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBA6CAC25C95FAE004A25BD /* GNHBPubmaticBannerAdapter.framework */; };
+		EFBA6CAF25C95FBA004A25BD /* GNHBPrebidBannerAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBA6CAE25C95FBA004A25BD /* GNHBPrebidBannerAdapter.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EFBA6C7325C95B0D004A25BD /* GNWrapperAdSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GNWrapperAdSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFBA6C7625C95B0D004A25BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EFBA6C7825C95B0E004A25BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EFBA6C7A25C95B0E004A25BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EFBA6C7D25C95B0E004A25BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EFBA6C7F25C95B0E004A25BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EFBA6C8225C95B0E004A25BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EFBA6C8425C95B0E004A25BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFBA6C9F25C95CA5004A25BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EFBA6CA025C95CA5004A25BD /* DefaultRemoteConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultRemoteConfig.plist; sourceTree = "<group>"; };
+		EFBA6CA425C95CB7004A25BD /* GNWrapperAdSampleApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GNWrapperAdSampleApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		EFBA6CA525C95CB8004A25BD /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		EFBA6CA625C95CB8004A25BD /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		EFBA6CAA25C95F9D004A25BD /* GNWrapperAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GNWrapperAdSDK.framework; path = ../../../GNWrapperAdSdk/Framework/GNWrapperAdSDK.framework; sourceTree = "<group>"; };
+		EFBA6CAC25C95FAE004A25BD /* GNHBPubmaticBannerAdapter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GNHBPubmaticBannerAdapter.framework; path = ../../../BannerAdapter/GNHBPubmaticBannerAdapter/Framework/GNHBPubmaticBannerAdapter.framework; sourceTree = "<group>"; };
+		EFBA6CAE25C95FBA004A25BD /* GNHBPrebidBannerAdapter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GNHBPrebidBannerAdapter.framework; path = ../../../BannerAdapter/GNHBPrebidBannerAdapter/Framework/GNHBPrebidBannerAdapter.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EFBA6C7025C95B0D004A25BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFBA6CAF25C95FBA004A25BD /* GNHBPrebidBannerAdapter.framework in Frameworks */,
+				EFBA6CAB25C95F9D004A25BD /* GNWrapperAdSDK.framework in Frameworks */,
+				EFBA6CAD25C95FAE004A25BD /* GNHBPubmaticBannerAdapter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0E64889623E29003F3E30DC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EFBA6CAE25C95FBA004A25BD /* GNHBPrebidBannerAdapter.framework */,
+				EFBA6CAC25C95FAE004A25BD /* GNHBPubmaticBannerAdapter.framework */,
+				EFBA6CAA25C95F9D004A25BD /* GNWrapperAdSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		343A1AEFC146A0D2CA41EE64 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EFBA6C6A25C95B0D004A25BD = {
+			isa = PBXGroup;
+			children = (
+				EFBA6C7525C95B0D004A25BD /* GNWrapperAdSampleApp */,
+				EFBA6C7425C95B0D004A25BD /* Products */,
+				343A1AEFC146A0D2CA41EE64 /* Pods */,
+				0E64889623E29003F3E30DC0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EFBA6C7425C95B0D004A25BD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EFBA6C7325C95B0D004A25BD /* GNWrapperAdSampleApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EFBA6C7525C95B0D004A25BD /* GNWrapperAdSampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				EFBA6C7625C95B0D004A25BD /* AppDelegate.swift */,
+				EFBA6C7825C95B0E004A25BD /* SceneDelegate.swift */,
+				EFBA6C7A25C95B0E004A25BD /* ViewController.swift */,
+				EFBA6CA625C95CB8004A25BD /* Util.h */,
+				EFBA6CA525C95CB8004A25BD /* Util.m */,
+				EFBA6C7C25C95B0E004A25BD /* Main.storyboard */,
+				EFBA6C7F25C95B0E004A25BD /* Assets.xcassets */,
+				EFBA6C8125C95B0E004A25BD /* LaunchScreen.storyboard */,
+				EFBA6C8425C95B0E004A25BD /* Info.plist */,
+				EFBA6CA025C95CA5004A25BD /* DefaultRemoteConfig.plist */,
+				EFBA6C9F25C95CA5004A25BD /* GoogleService-Info.plist */,
+				EFBA6CA425C95CB7004A25BD /* GNWrapperAdSampleApp-Bridging-Header.h */,
+			);
+			path = GNWrapperAdSampleApp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EFBA6C7225C95B0D004A25BD /* GNWrapperAdSampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFBA6C8725C95B0E004A25BD /* Build configuration list for PBXNativeTarget "GNWrapperAdSampleApp" */;
+			buildPhases = (
+				EFBA6C6F25C95B0D004A25BD /* Sources */,
+				EFBA6C7025C95B0D004A25BD /* Frameworks */,
+				EFBA6C7125C95B0D004A25BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GNWrapperAdSampleApp;
+			productName = GNWrapperAdSampleApp;
+			productReference = EFBA6C7325C95B0D004A25BD /* GNWrapperAdSampleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EFBA6C6B25C95B0D004A25BD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					EFBA6C7225C95B0D004A25BD = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
+					};
+				};
+			};
+			buildConfigurationList = EFBA6C6E25C95B0D004A25BD /* Build configuration list for PBXProject "GNWrapperAdSampleApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EFBA6C6A25C95B0D004A25BD;
+			productRefGroup = EFBA6C7425C95B0D004A25BD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EFBA6C7225C95B0D004A25BD /* GNWrapperAdSampleApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EFBA6C7125C95B0D004A25BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFBA6C8325C95B0E004A25BD /* LaunchScreen.storyboard in Resources */,
+				EFBA6CA125C95CA5004A25BD /* GoogleService-Info.plist in Resources */,
+				EFBA6C8025C95B0E004A25BD /* Assets.xcassets in Resources */,
+				EFBA6CA225C95CA5004A25BD /* DefaultRemoteConfig.plist in Resources */,
+				EFBA6C7E25C95B0E004A25BD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EFBA6C6F25C95B0D004A25BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFBA6C7B25C95B0E004A25BD /* ViewController.swift in Sources */,
+				EFBA6C7725C95B0D004A25BD /* AppDelegate.swift in Sources */,
+				EFBA6C7925C95B0E004A25BD /* SceneDelegate.swift in Sources */,
+				EFBA6CA725C95CB8004A25BD /* Util.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EFBA6C7C25C95B0E004A25BD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFBA6C7D25C95B0E004A25BD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EFBA6C8125C95B0E004A25BD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFBA6C8225C95B0E004A25BD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EFBA6C8525C95B0E004A25BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EFBA6C8625C95B0E004A25BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EFBA6C8825C95B0E004A25BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RKMVWZ32F4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseABTesting\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreDiagnostics\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstallations\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseRemoteConfig\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransport\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PrebidMobile\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb\"",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks\"",
+					"\"${PODS_ROOT}/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current\"",
+					"\"${PODS_ROOT}/GoogleAppMeasurement/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleUserMessagingPlatform/Frameworks/Release\"",
+					"\"${PODS_ROOT}/OpenWrapEventHandler/OpenWrapHandlers/OpenWrapHandlerDFP/Frameworks\"",
+					"\"${PODS_ROOT}/OpenWrapSDK/OpenWrapSDK/Frameworks\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/GoogleMobileAds\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/UserMessagingPlatform\"",
+					../../../GNWrapperAdSdk/Framework/,
+					../../../BannerAdapter/GNHBPrebidBannerAdapter/Framework/,
+					../../../BannerAdapter/GNHBPubmaticBannerAdapter/Framework/,
+				);
+				INFOPLIST_FILE = GNWrapperAdSampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.geniee.GNWrapperAdSampleApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GNWrapperAdSampleApp/GNWrapperAdSampleApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EFBA6C8925C95B0E004A25BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RKMVWZ32F4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseABTesting\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreDiagnostics\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstallations\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseRemoteConfig\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransport\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PrebidMobile\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb\"",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks\"",
+					"\"${PODS_ROOT}/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current\"",
+					"\"${PODS_ROOT}/GoogleAppMeasurement/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleUserMessagingPlatform/Frameworks/Release\"",
+					"\"${PODS_ROOT}/OpenWrapEventHandler/OpenWrapHandlers/OpenWrapHandlerDFP/Frameworks\"",
+					"\"${PODS_ROOT}/OpenWrapSDK/OpenWrapSDK/Frameworks\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/GoogleMobileAds\"",
+					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/UserMessagingPlatform\"",
+					../../../GNWrapperAdSdk/Framework/,
+					../../../BannerAdapter/GNHBPrebidBannerAdapter/Framework/,
+					../../../BannerAdapter/GNHBPubmaticBannerAdapter/Framework/,
+				);
+				INFOPLIST_FILE = GNWrapperAdSampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.geniee.GNWrapperAdSampleApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GNWrapperAdSampleApp/GNWrapperAdSampleApp-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EFBA6C6E25C95B0D004A25BD /* Build configuration list for PBXProject "GNWrapperAdSampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFBA6C8525C95B0E004A25BD /* Debug */,
+				EFBA6C8625C95B0E004A25BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFBA6C8725C95B0E004A25BD /* Build configuration list for PBXNativeTarget "GNWrapperAdSampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFBA6C8825C95B0E004A25BD /* Debug */,
+				EFBA6C8925C95B0E004A25BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EFBA6C6B25C95B0D004A25BD /* Project object */;
+}
