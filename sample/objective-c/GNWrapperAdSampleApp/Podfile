@@ -15,6 +15,5 @@ target 'GNWrapperAdSampleApp' do
   pod 'PrebidMobile'
   # PubMatic
   pod 'OpenWrapSDK'
-  pod 'OpenWrapEventHandler/DFP'
 
 end

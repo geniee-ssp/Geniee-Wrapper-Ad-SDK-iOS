@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     var remoteConfig: RemoteConfig! = nil
     var gnWrapperAd: GNWrapperAdBanner! = nil
     var targetParams: GNCustomTargetingParams! = nil
-    var bannerView: DFPBannerView! = nil
+    var bannerView: GAMBannerView! = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +43,10 @@ class ViewController: UIViewController {
         self.remoteConfig = RemoteConfig.remoteConfig()
         self.remoteConfig.setDefaults(fromPlist: FIREBASE_DEFAULT_REMOTE_CONFIG)
 
+        if (ADMANAGER_DEVELOPER_MODE) {
+            GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [Util.admobDeviceID()]
+        }
+
         GNWrapperAdSDK.setLogPriority(GNLogPriorityInfo)
         GNWrapperAdSDK.setTestMode(GNWRAPPERSDK_TEST_MODE)
         self.gnWrapperAd = GNWrapperAdBanner.init()
@@ -51,7 +55,7 @@ class ViewController: UIViewController {
         self.gnWrapperAd.frame = CGRect(x: 0, y: 0, width: ADMANAGER_AD_SIZE.size.width, height: ADMANAGER_AD_SIZE.size.height)
         self.gnWrapperAd.center = CGPoint(x: self.view.center.x, y: self.view.center.y)
 
-        self.bannerView = DFPBannerView.init(adSize: ADMANAGER_AD_SIZE)
+        self.bannerView = GAMBannerView.init(adSize: ADMANAGER_AD_SIZE)
         self.bannerView.delegate = self
         self.bannerView.appEventDelegate = self
         self.bannerView.rootViewController = self
@@ -82,11 +86,8 @@ class ViewController: UIViewController {
         self.bannerView.isHidden = false
         self.bannerView.adUnitID = self.targetParams.unitId
 
-        let request: DFPRequest = DFPRequest.init()
-        request.customTargeting = (self.targetParams.targetParams as! [AnyHashable : Any])
-        if (ADMANAGER_DEVELOPER_MODE) {
-            request.testDevices = [Util.admobDeviceID()]
-        }
+        let request: GAMRequest = GAMRequest.init()
+        request.customTargeting = (self.targetParams.targetParams as! [String : String])
         self.bannerView.load(request)
         print("ViewController: requestAdManagerBanner")
     }
@@ -123,8 +124,8 @@ extension ViewController: GNWrapperAdBannerDelegate {
 extension ViewController: GADBannerViewDelegate {
 
     /// Tells the delegate an ad request loaded an ad.
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        print("ViewController: adViewDidReceiveAd")
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("ViewController: bannerViewDidReceiveAd")
         self.gnWrapperAd.requestRefresh(self.bannerView)
         if ("Prebid" == self.gnWrapperAd.getAfterLoadedGAMBanner()) {
             AdViewUtils.findPrebidCreativeSize(self.bannerView,
@@ -132,14 +133,14 @@ extension ViewController: GADBannerViewDelegate {
                     self.bannerView.resize(GADAdSizeFromCGSize(size))
                 },
                 failure: { (error) in
-                    print("ViewController: adViewDidReceiveAd error = \(error.localizedDescription)")
+                    print("ViewController: bannerViewDidReceiveAd error = \(error.localizedDescription)")
                 }
             )
         }
     }
 
     /// Tells the delegate an ad request failed.
-    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
         print("ViewController: didFailToReceiveAdWithError: \(error.localizedDescription)")
     }
     

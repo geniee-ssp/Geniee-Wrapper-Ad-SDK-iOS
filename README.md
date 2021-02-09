@@ -112,7 +112,6 @@ UPR最適化+HBによる収益向上を行うため、GNWrapperAdSDKを使用し
 		```
 		# PubMatic
 		pod 'OpenWrapSDK'
-		pod 'OpenWrapEventHandler/DFP'
 		# GNHBPubmaticBannerAdapter
 		pod 'Geniee-Wrapper-Ad-Banner-Adapter-Pubmatic-iOS'
 		```
@@ -128,7 +127,7 @@ UPR最適化+HBによる収益向上を行うため、GNWrapperAdSDKを使用し
 
 	| 機能 | Key | Type | Value |
 	| :-- | :-- | :-- | :-- |
-	| Google AdManagerを使用する場合 | GADIsAdManagerApp | Bool | YES |
+	| Google AdManagerを使用する場合 | GADApplicationIdentifier | String | AdManagerのアプリID<br>(AdManager管理画面から取得する) |
 
 ### 2. アプリの処理実装
 #### 2.1. 初期化処理
@@ -378,6 +377,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 - [初期処理](https://developers.google.com/ad-manager/mobile-ads-sdk/ios/quick-start)
 - [バナー広告](https://developers.google.com/ad-manager/mobile-ads-sdk/ios/quick-start)
 - [CustomTargeting](https://developers.google.com/ad-manager/mobile-ads-sdk/ios/targeting#custom_targeting)
+- [GoogleMobileAdsSDK(version 8.0.0)について](https://developers.google.com/ad-manager/mobile-ads-sdk/ios/migration)
 
 ##### 2.4.1 初期処理
 1. AdManager機能を使用するため、import処理を追加します。
@@ -394,19 +394,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	```
 
 2. メソッド`viewDidLoad`で、以下の初期処理を行います。
-	- DFPBannerViewオブジェクトの生成・初期化とaddView処理。  
+	- GAMBannerViewオブジェクトの生成・初期化とaddView処理。  
 
 	・objectivec
 
 	```objectivec
 	@interface ViewController () <GADBannerViewDelegate, GADAppEventDelegate, GNWrapperAdDelegate>
-	@property(nonatomic, strong) DFPBannerView *bannerView;
+	@property(nonatomic, strong) GAMBannerView *bannerView;
 	@end
 	
 	@implementation ViewController
 	
 	- (void)viewDidLoad {
-	    _bannerView = [[DFPBannerView alloc] initWithAdSize:ADMANAGER_AD_SIZE];
+	    _bannerView = [[GAMBannerView alloc] initWithAdSize:ADMANAGER_AD_SIZE];
 	    _bannerView.delegate = self;
 	    _bannerView.appEventDelegate = self;
 	    _bannerView.rootViewController = self;
@@ -422,7 +422,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var bannerView: DFPBannerView! = nil
 	
 	override func viewDidLoad() {
-	    self.bannerView = DFPBannerView.init(adSize: ADMANAGER_AD_SIZE)
+	    self.bannerView = GAMBannerView.init(adSize: ADMANAGER_AD_SIZE)
 	    self.bannerView.delegate = self
 	    self.bannerView.appEventDelegate = self
 	    self.bannerView.rootViewController = self
@@ -439,12 +439,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	```objectivec
 	// GADBannerViewDelegate
 	
-	- (void)adViewDidReceiveAd:(DFPBannerView *)adView {
+	- (void)bannerViewDidReceiveAd:(nonnull GADBannerView *)bannerView {
 	    [_gnWrapperAd requestRefresh:_bannerView];
 	}
 
-	- (void)adView:(DFPBannerView *)adView
-    didFailToReceiveAdWithError:(GADRequestError *)error {
+	- (void)bannerView:(nonnull GADBannerView *)bannerView
+        didFailToReceiveAdWithError:(nonnull NSError *)error {
 	    NSLog(@"ViewController: didFailToReceiveAdWithError: %@", [error localizedDescription]);
 	}
 	```
@@ -453,11 +453,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	```swift
 	extension ViewController: GADBannerViewDelegate {
 	
-	    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+	    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
 	        self.gnWrapperAd.requestRefresh(self.bannerView)
 	    }
 	
-	    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+	    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
 	        print("ViewController: didFailToReceiveAdWithError: \(error.localizedDescription)")
 	    }
 	    
@@ -471,7 +471,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	```objectivec
 	/// GADAppEventDelegate.
 	
-	- (void)adView:(DFPBannerView *)banner didReceiveAppEvent:(NSString *)name withInfo:(NSString *)info {
+	- (void)adView:(nonnull GADBannerView *)banner didReceiveAppEvent:(nonnull NSString *)name withInfo:(nullable NSString *)info {
 	}
 	```
 	・swift
@@ -498,7 +498,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	    [_bannerView setHidden:false];
 	    _bannerView.adUnitID = _targetParams.unitId;
 	
-	    DFPRequest * request = [DFPRequest request];
+	    GAMRequest * request = [GAMRequest request];
 	    request.customTargeting = _targetParams.targetParams;
 	    [self.bannerView loadRequest:request];
 	}
@@ -513,8 +513,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	    self.bannerView.isHidden = false
 	    self.bannerView.adUnitID = self.targetParams.unitId
 	
-	    let request: DFPRequest = DFPRequest.init()
-	    request.customTargeting = (self.targetParams.targetParams as! [AnyHashable : Any])
+	    let request: GAMRequest = GAMRequest.init()
+	    request.customTargeting = (self.targetParams.targetParams as! [String : String])
 	    self.bannerView.load(request)
 	}
 	```
@@ -524,7 +524,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	・objectivec
 
 	```objectivec
-	func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+	- (void)bannerViewDidReceiveAd:(nonnull GADBannerView *)bannerView {
+	    [_gnWrapperAd requestRefresh:_bannerView];
+	    if ([@"Prebid" isEqualToString:[_gnWrapperAd getAfterLoadedGAMBanner]]) {
+	        [AdViewUtils findPrebidCreativeSize:_bannerView
+	                                    success:^(CGSize size) {
+	                                        [_bannerView resize:GADAdSizeFromCGSize(size)];
+	                                    } failure:^(NSError * _Nonnull error) {
+	                                        [GNLog logWithPriority:GNLogPriorityError message:[NSString stringWithFormat:@"ViewController: adViewDidReceiveAd error = %@", [error localizedDescription]]];
+	                                    }];
+	    }
+	}
+	```
+	・swift
+	
+	```swift
+	func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
 		self.gnWrapperAd.requestRefresh(self.bannerView)
 	    if ("Prebid" == self.gnWrapperAd.getAfterLoadedGAMBanner()) {
 	        AdViewUtils.findPrebidCreativeSize(self.bannerView,
@@ -538,27 +553,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	    }
 	}
 	```
-	・swift
-	
-	```swift
-	- (void)adViewDidReceiveAd:(DFPBannerView *)adView {
-	    [_gnWrapperAd requestRefresh:_bannerView];
-	    if ([@"Prebid" isEqualToString:[_gnWrapperAd getAfterLoadedGAMBanner]]) {
-	        [AdViewUtils findPrebidCreativeSize:adView
-	                                    success:^(CGSize size) {
-	                                        [adView resize:GADAdSizeFromCGSize(size)];
-	                                    } failure:^(NSError * _Nonnull error) {
-	                                        [GNLog logWithPriority:GNLogPriorityError message:[NSString stringWithFormat:@"ViewController: adViewDidReceiveAd error = %@", [error localizedDescription]]];
-	                                    }];
-	    }
-	}
-	```
 
 3. 広告枠情報に"Pubmatic"情報がある場合、AdManagerのAppEvent時に、以下の処理を追加します。
 
 	・objectivec
 
 	```objectivec
+	- (void)adView:(nonnull GADBannerView *)banner didReceiveAppEvent:(nonnull NSString *)name withInfo:(nullable NSString *)info {
+	    if ([@"pubmaticdm" isEqualToString:name]) {
+	        if ([_gnWrapperAd isNecessaryShow]) {
+	            [_gnWrapperAd setHidden:false];
+	            [_bannerView setHidden:true];
+	
+	            [_gnWrapperAd show];
+	            [_gnWrapperAd requestRefresh:_gnWrapperAd];
+	        }
+	    }
+	}
+	```
+	・swift
+	
+	```swift
 	func adView(_ banner: GADBannerView, didReceiveAppEvent name: String, withInfo info: String?) {
 	    if ("pubmaticdm" == name) {
 	        if (self.gnWrapperAd.isNecessaryShow()) {
@@ -567,21 +582,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	            self.gnWrapperAd.show()
 	            self.gnWrapperAd.requestRefresh(self.gnWrapperAd)
-	        }
-	    }
-	}
-	```
-	・swift
-	
-	```swift
-	- (void)adView:(DFPBannerView *)banner didReceiveAppEvent:(NSString *)name withInfo:(NSString *)info {
-	    if ([@"pubmaticdm" isEqualToString:name]) {
-	        if ([_gnWrapperAd isNecessaryShow]) {
-	            [_gnWrapperAd setHidden:false];
-	            [_bannerView setHidden:true];
-	
-	            [_gnWrapperAd show];
-	            [_gnWrapperAd requestRefresh:_gnWrapperAd];
 	        }
 	    }
 	}
