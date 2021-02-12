@@ -15,7 +15,6 @@ target 'GNWrapperAdSampleApp' do
   pod 'PrebidMobile'
   # PubMatic
   pod 'OpenWrapSDK'
-  pod 'OpenWrapEventHandler/DFP'
   # GNWrapperAdSdk
   pod 'Geniee-Wrapper-Ad-SDK-iOS'
   # GNHBPrebidBannerAdapter
