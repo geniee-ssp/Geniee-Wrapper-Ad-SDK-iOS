@@ -19,7 +19,7 @@
 @property(nonatomic, weak) FIRRemoteConfig *remoteConfig;
 @property(nonatomic, retain) GNWrapperAdBanner *gnWrapperAd;
 @property(nonatomic, retain) GNCustomTargetingParams *targetParams;
-@property(nonatomic, strong) DFPBannerView *bannerView;
+@property(nonatomic, strong) GAMBannerView *bannerView;
 
 @end
 
@@ -56,6 +56,10 @@ static const bool ADMANAGER_DEVELOPER_MODE = true;
     _remoteConfig.configSettings = remoteConfigSettings;
     [_remoteConfig setDefaultsFromPlistFileName:FIREBASE_DEFAULT_REMOTE_CONFIG];
 
+    if (ADMANAGER_DEVELOPER_MODE) {
+        GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[[Util admobDeviceID]];
+    }
+
     [GNWrapperAdSDK setLogPriority:GNLogPriorityInfo];
     [GNWrapperAdSDK setTestMode:GNWRAPPERSDK_TEST_MODE];
     _gnWrapperAd = [[GNWrapperAdBanner alloc] init];
@@ -64,7 +68,7 @@ static const bool ADMANAGER_DEVELOPER_MODE = true;
     _gnWrapperAd.frame = CGRectMake(0, 0, ADMANAGER_AD_SIZE.size.width, ADMANAGER_AD_SIZE.size.height);
     _gnWrapperAd.center = CGPointMake(self.view.center.x, self.view.center.y);
 
-    _bannerView = [[DFPBannerView alloc] initWithAdSize:ADMANAGER_AD_SIZE];
+    _bannerView = [[GAMBannerView alloc] initWithAdSize:ADMANAGER_AD_SIZE];
     _bannerView.delegate = self;
     _bannerView.appEventDelegate = self;
     _bannerView.rootViewController = self;
@@ -95,11 +99,8 @@ static const bool ADMANAGER_DEVELOPER_MODE = true;
     [_bannerView setHidden:false];
     _bannerView.adUnitID = _targetParams.unitId;
 
-    DFPRequest * request = [DFPRequest request];
+    GAMRequest * request = [GAMRequest request];
     request.customTargeting = _targetParams.targetParams;
-    if (ADMANAGER_DEVELOPER_MODE) {
-        request.testDevices = @[[Util admobDeviceID]];
-    }
     [self.bannerView loadRequest:request];
     NSLog(@"ViewController: requestAdManagerBanner");
 }
@@ -135,22 +136,22 @@ static const bool ADMANAGER_DEVELOPER_MODE = true;
 // GADBannerViewDelegate
 
 /// Tells the delegate an ad request loaded an ad.
-- (void)adViewDidReceiveAd:(DFPBannerView *)adView {
-    NSLog(@"ViewController: adViewDidReceiveAd");
+- (void)bannerViewDidReceiveAd:(nonnull GADBannerView *)bannerView {
+    NSLog(@"ViewController: bannerViewDidReceiveAd");
     [_gnWrapperAd requestRefresh:_bannerView];
     if ([@"Prebid" isEqualToString:[_gnWrapperAd getAfterLoadedGAMBanner]]) {
-        [AdViewUtils findPrebidCreativeSize:adView
+        [AdViewUtils findPrebidCreativeSize:_bannerView
                                     success:^(CGSize size) {
-                                        [adView resize:GADAdSizeFromCGSize(size)];
+                                        [_bannerView resize:GADAdSizeFromCGSize(size)];
                                     } failure:^(NSError * _Nonnull error) {
-                                        [GNLog logWithPriority:GNLogPriorityError message:[NSString stringWithFormat:@"ViewController: adViewDidReceiveAd error = %@", [error localizedDescription]]];
+                                        [GNLog logWithPriority:GNLogPriorityError message:[NSString stringWithFormat:@"ViewController: bannerViewDidReceiveAd error = %@", [error localizedDescription]]];
                                     }];
     }
 }
 
 /// Tells the delegate an ad request failed.
-- (void)adView:(DFPBannerView *)adView
-    didFailToReceiveAdWithError:(GADRequestError *)error {
+- (void)bannerView:(nonnull GADBannerView *)bannerView
+        didFailToReceiveAdWithError:(nonnull NSError *)error {
     NSLog(@"ViewController: didFailToReceiveAdWithError: %@", [error localizedDescription]);
 }
 
@@ -158,7 +159,7 @@ static const bool ADMANAGER_DEVELOPER_MODE = true;
 /// GADAppEventDelegate.
 
 // Called when the banner receives an app event.
-- (void)adView:(DFPBannerView *)banner didReceiveAppEvent:(NSString *)name withInfo:(NSString *)info {
+- (void)adView:(nonnull GADBannerView *)banner didReceiveAppEvent:(nonnull NSString *)name withInfo:(nullable NSString *)info {
     NSLog(@"ViewController: didReceiveAppEvent: %@", name);
     
     if ([@"pubmaticdm" isEqualToString:name]) {
