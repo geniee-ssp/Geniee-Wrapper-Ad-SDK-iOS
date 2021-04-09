@@ -92,6 +92,7 @@ Pod::Spec.new do |s|
   s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
   s.requires_arc = true
   s.dependency "Geniee-Wrapper-Ad-SDK-iOS"
-  s.dependency "OpenWrapSDK"
+  # Enable the OpenWrap SDK when it is compatible with the simulator arm64.
+  #s.dependency "OpenWrapSDK"
 
 end
