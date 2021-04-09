@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,9 +16,9 @@
 		EFBA6CA125C95CA5004A25BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFBA6C9F25C95CA5004A25BD /* GoogleService-Info.plist */; };
 		EFBA6CA225C95CA5004A25BD /* DefaultRemoteConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFBA6CA025C95CA5004A25BD /* DefaultRemoteConfig.plist */; };
 		EFBA6CA725C95CB8004A25BD /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBA6CA525C95CB8004A25BD /* Util.m */; };
-		EFBA6CAB25C95F9D004A25BD /* GNWrapperAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBA6CAA25C95F9D004A25BD /* GNWrapperAdSDK.framework */; };
-		EFBA6CAD25C95FAE004A25BD /* GNHBPubmaticBannerAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBA6CAC25C95FAE004A25BD /* GNHBPubmaticBannerAdapter.framework */; };
-		EFBA6CAF25C95FBA004A25BD /* GNHBPrebidBannerAdapter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBA6CAE25C95FBA004A25BD /* GNHBPrebidBannerAdapter.framework */; };
+		EFBA6CAB25C95F9D004A25BD /* GNWrapperAdSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBA6CAA25C95F9D004A25BD /* GNWrapperAdSDK.xcframework */; };
+		EFBA6CAD25C95FAE004A25BD /* GNHBPubmaticBannerAdapter.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBA6CAC25C95FAE004A25BD /* GNHBPubmaticBannerAdapter.xcframework */; };
+		EFBA6CAF25C95FBA004A25BD /* GNHBPrebidBannerAdapter.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBA6CAE25C95FBA004A25BD /* GNHBPrebidBannerAdapter.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,9 +35,9 @@
 		EFBA6CA425C95CB7004A25BD /* GNWrapperAdSampleApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GNWrapperAdSampleApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		EFBA6CA525C95CB8004A25BD /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		EFBA6CA625C95CB8004A25BD /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
-		EFBA6CAA25C95F9D004A25BD /* GNWrapperAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GNWrapperAdSDK.framework; path = ../../../GNWrapperAdSdk/Framework/GNWrapperAdSDK.framework; sourceTree = "<group>"; };
-		EFBA6CAC25C95FAE004A25BD /* GNHBPubmaticBannerAdapter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GNHBPubmaticBannerAdapter.framework; path = ../../../BannerAdapter/GNHBPubmaticBannerAdapter/Framework/GNHBPubmaticBannerAdapter.framework; sourceTree = "<group>"; };
-		EFBA6CAE25C95FBA004A25BD /* GNHBPrebidBannerAdapter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GNHBPrebidBannerAdapter.framework; path = ../../../BannerAdapter/GNHBPrebidBannerAdapter/Framework/GNHBPrebidBannerAdapter.framework; sourceTree = "<group>"; };
+		EFBA6CAA25C95F9D004A25BD /* GNWrapperAdSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GNWrapperAdSDK.xcframework; path = ../../../GNWrapperAdSdk/Framework/GNWrapperAdSDK.xcframework; sourceTree = "<group>"; };
+		EFBA6CAC25C95FAE004A25BD /* GNHBPubmaticBannerAdapter.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GNHBPubmaticBannerAdapter.xcframework; path = ../../../BannerAdapter/GNHBPubmaticBannerAdapter/Framework/GNHBPubmaticBannerAdapter.xcframework; sourceTree = "<group>"; };
+		EFBA6CAE25C95FBA004A25BD /* GNHBPrebidBannerAdapter.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GNHBPrebidBannerAdapter.xcframework; path = ../../../BannerAdapter/GNHBPrebidBannerAdapter/Framework/GNHBPrebidBannerAdapter.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,9 +45,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFBA6CAF25C95FBA004A25BD /* GNHBPrebidBannerAdapter.framework in Frameworks */,
-				EFBA6CAB25C95F9D004A25BD /* GNWrapperAdSDK.framework in Frameworks */,
-				EFBA6CAD25C95FAE004A25BD /* GNHBPubmaticBannerAdapter.framework in Frameworks */,
+				EFBA6CAF25C95FBA004A25BD /* GNHBPrebidBannerAdapter.xcframework in Frameworks */,
+				EFBA6CAB25C95F9D004A25BD /* GNWrapperAdSDK.xcframework in Frameworks */,
+				EFBA6CAD25C95FAE004A25BD /* GNHBPubmaticBannerAdapter.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,9 +57,9 @@
 		0E64889623E29003F3E30DC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EFBA6CAE25C95FBA004A25BD /* GNHBPrebidBannerAdapter.framework */,
-				EFBA6CAC25C95FAE004A25BD /* GNHBPubmaticBannerAdapter.framework */,
-				EFBA6CAA25C95F9D004A25BD /* GNWrapperAdSDK.framework */,
+				EFBA6CAE25C95FBA004A25BD /* GNHBPrebidBannerAdapter.xcframework */,
+				EFBA6CAC25C95FAE004A25BD /* GNHBPubmaticBannerAdapter.xcframework */,
+				EFBA6CAA25C95F9D004A25BD /* GNWrapperAdSDK.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

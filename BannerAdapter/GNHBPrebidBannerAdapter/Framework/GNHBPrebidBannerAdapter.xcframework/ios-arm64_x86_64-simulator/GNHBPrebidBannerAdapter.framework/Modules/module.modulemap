@@ -1,0 +1,11 @@
+framework module GNHBPrebidBannerAdapter {
+  umbrella header "GNHBPrebidBannerAdapter.h"
+
+  export *
+  module * { export * }
+
+  link framework "Foundation"
+  link framework "UIKit"
+
+  header "GNHBPrebidBannerAdapter.h"
+}
