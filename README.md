@@ -69,7 +69,7 @@ GNWrapperAdSDKは株式会社ジーニーが提供するアプリにおける収
 		pod 'Geniee-Wrapper-Ad-SDK-iOS'
 		```
             
-		GNWrapperAdSDKをローカルで取り込む場合は、"GNWrapperAdSDK.xcframework"をプロジェクトへ取り込み、プロジェクト設定のBuild SettingsのFramework Search Pathsの設定に"GNWrapperAdSDK.framework"のパスを指定してください。
+		GNWrapperAdSDKをローカルで取り込む場合は、"GNWrapperAdSDK.xcframework"をプロジェクトへ取り込み、プロジェクト設定のBuild SettingsのFramework Search Pathsの設定に"GNWrapperAdSDK.xcframework"のパスを指定してください。
         
 	- Prebid広告を使用する場合
 
@@ -80,7 +80,7 @@ GNWrapperAdSDKは株式会社ジーニーが提供するアプリにおける収
 		pod 'Geniee-Wrapper-Ad-Banner-Adapter-Prebid-iOS'
 		```
 
-		GNHBPrebidBannerAdapterをローカルで取り込む場合は、"GNHBPrebidBannerAdapter.xcframework"をプロジェクトへ取り込み、プロジェクト設定のBuild SettingsのFramework Search Pathsの設定に"GNHBPrebidBannerAdapter.framework"のパスを指定してください。
+		GNHBPrebidBannerAdapterをローカルで取り込む場合は、"GNHBPrebidBannerAdapter.xcframework"をプロジェクトへ取り込み、プロジェクト設定のBuild SettingsのFramework Search Pathsの設定に"GNHBPrebidBannerAdapter.xcframework"のパスを指定してください。
 
 	- Pubmatic広告を使用する場合
 
@@ -91,7 +91,7 @@ GNWrapperAdSDKは株式会社ジーニーが提供するアプリにおける収
 		pod 'Geniee-Wrapper-Ad-Banner-Adapter-Pubmatic-iOS'
 		```
 
-		GNHBPubmaticBannerAdapterをローカルで取り込む場合は、"GNHBPubmaticBannerAdapter.xcframework"をプロジェクトへ取り込み、プロジェクト設定のBuild SettingsのFramework Search Pathsの設定に"GNHBPubmaticBannerAdapter.framework"のパスを指定してください。
+		GNHBPubmaticBannerAdapterをローカルで取り込む場合は、"GNHBPubmaticBannerAdapter.xcframework"をプロジェクトへ取り込み、プロジェクト設定のBuild SettingsのFramework Search Pathsの設定に"GNHBPubmaticBannerAdapter.xcframework"のパスを指定してください。
 
 2. コマンド`pod install`でFrameworkをプロジェクトへ取り入れます。
 
