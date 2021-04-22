@@ -104,6 +104,12 @@ GNWrapperAdSDKは株式会社ジーニーが提供するアプリにおける収
 	| :-- | :-- | :-- | :-- |
 	| Google AdManagerを使用する場合 | GADApplicationIdentifier | String | AdManagerのアプリID<br>(AdManager管理画面から取得する) |
 
+2. 「App Tracking Transparency」・「SKAdNetwork」を設定する。
+    項目：[5. 備考](#5_bikou)に記載している以下の項目を実装してください。  
+    - [2. App Tracking Transparency追加します。](#5_bikou_2)
+    - [3. SKAdNetwork を有効にします。](#5_bikou_3)
+
+
 ### 4.3. RemoteConfig初期設定
 1. xmlファイルを作成し、default情報(広告枠情報)について記載します。これはFirebaseのRemote Config機能から広告枠情報を取得できない場合に使用されます。
 
@@ -687,6 +693,51 @@ GNWrapperAdSDKは株式会社ジーニーが提供するアプリにおける収
 	}
 	```
 
-## 備考
-- 一連の実装コードのついては、サンプルアプリを参考にしてください。
-- iOS14以降、IDFAを使用するにはユーザーの明示的な許可が必要となります。(本対応はAppleの発表では2021年のはじめ頃より対応となります。対応方法は[こちら](https://developers.google.com/ad-manager/mobile-ads-sdk/ios/ios14)を参照ください。
+## <a name="5_bikou"></a>5. 備考
+1. 一連の実装コードのついては、サンプルアプリを参考にしてください。
+2. <a name="5_bikou_2"></a>App Tracking Transparency追加します。  
+	iOSでは、ユーザーの端末を識別するIDFA(Identifier for Advertisers：広告主向け識別子)という機能が用意されています。  
+	iOS14.4までは、ユーザーが iOS設定で広告のパーソナライズ制限している場合を除き、IDFAがデフォルトで利用可能でした。  
+	iOS14.5のリリースに伴い、IDFA を使用するにはユーザーの明示的な許可が必要となります。  
+	
+	対応方法：  
+	AppTrackingTransparencyの権限をアプリに追加してください。IDFAへのアクセスと使用を許可するよう求めるアラートが追加され、ユーザーより許諾可否を指定していただく事になります。
+	
+	1. Info.plistに以下を設定します。  
+		説明メッセージ(IDFAを使用する理由の文言)には、ユーザーデータがどのように使用されるか、パーソナライズ広告を有効化するにはどうすればいいかといった情報を記載します。
+
+		| key | type | value | 
+		| :--  | :-- | :-- |
+		| Privacy - Tracking Usage Description | String | IDFAを使用する理由の文言 |
+
+	2. 以下のコードを追加します。
+		許可リクエストを表示するには、requestTrackingAuthorizationWithCompletionHandler: を呼び出します。広告を読み込みは、完了コールバックがあるまで待つことをおすすめします。  
+		・objectivec
+
+		```objectivec
+		#import <AppTrackingTransparency/AppTrackingTransparency.h>
+		#import <AdSupport/AdSupport.h>
+
+		- (void)requestIDFA {
+		    [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+		    // Tracking authorization completed. Start loading ads. 		    }];
+		}
+		```
+		・swift
+
+		```swift
+		import AppTrackingTransparency
+		import AdSupport
+
+		func requestIDFA() {
+		    ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+		        // Tracking authorization completed. Start loading ads.
+		    })
+		}
+		```
+		
+		以下を[サイト](https://developers.google.com/ad-manager/mobile-ads-sdk/ios/ios14)を参照ください。
+
+3. <a name="5_bikou_3"></a>SKAdNetwork を有効にします。  
+	Info.plistにSKAdNetworkItemsを配列形式で追加し、SKAdNetworkIdentifierを設定します。  
+	SKAdNetworkIdentifierは[このサイト](https://developers.google.com/ad-manager/mobile-ads-sdk/ios/quick-start)に記載してありますので、コピーして設定してください。
