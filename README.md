@@ -731,3 +731,6 @@ GNWrapperAdSDKは株式会社ジーニーが提供するアプリにおける収
 		
 		以下を[サイト](https://developers.google.com/ad-manager/mobile-ads-sdk/ios/ios14)を参照ください。
 
+- SKAdNetwork を有効にする。
+	Info.plistにSKAdNetworkItemsを配列形式で追加し以下サイトの内容を設定します。  
+	詳細は[ここ](https://developers.google.com/ad-manager/mobile-ads-sdk/ios/quick-start)を参照ください。
