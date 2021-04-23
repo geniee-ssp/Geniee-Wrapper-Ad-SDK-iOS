@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Geniee-Wrapper-Ad-Banner-Adapter-Prebid-iOS"
-  s.version      = "1.0.0"
+  s.version      = "1.0.2"
   s.summary      = "An SDK for ad menetization with the Geniee Network"
   s.homepage     = "https://geniee.co.jp"
   s.license      = { :type => "Apache License, Version 2.0", :file => "LICENSE" }
@@ -43,7 +43,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
- s.source       = { :git => "https://github.com/geniee-ssp/Geniee-Wrapper-Ad-SDK-iOS.git", :tag => "v.1.0.0" }
+ s.source       = { :git => "https://github.com/geniee-ssp/Geniee-Wrapper-Ad-SDK-iOS.git", :tag => "v.1.0.2" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -54,7 +54,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
   
-  s.vendored_frameworks = "BannerAdapter/GNHBPrebidBannerAdapter/Framework/GNHBPrebidBannerAdapter.framework"
+  s.vendored_frameworks = "BannerAdapter/GNHBPrebidBannerAdapter/Framework/GNHBPrebidBannerAdapter.xcframework"
   
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -88,8 +88,8 @@ Pod::Spec.new do |s|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
   s.requires_arc = true
   s.dependency "Geniee-Wrapper-Ad-SDK-iOS"
   s.dependency "PrebidMobile"
